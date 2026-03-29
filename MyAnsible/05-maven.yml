@@ -7,8 +7,8 @@
   tasks:
     - name: Download Maven tar
       get_url:
-        url: https://downloads.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
-        dest: /opt/apache-maven-3.9.11-bin.tar.gz
+        url: https://dlcdn.apache.org/maven/maven-3/3.9.14/binaries/apache-maven-3.9.14-bin.tar.gz
+        dest: /opt/apache-maven-3.9.14-bin.tar.gz
     
     - name: Create a directory
       file:
@@ -16,10 +16,10 @@
         state: directory
     
     - name: Extract Maven
-      command: tar xvf /opt/apache-maven-3.9.11-bin.tar.gz -C /opt/maven
+      command: tar xvf /opt/apache-maven-3.9.14-bin.tar.gz -C /opt/maven
    
     - name: Update Profile
-      copy: content="export M2_HOME=/opt/maven/apache-maven-3.9.11 \n" dest=/etc/profile.d/maven.sh
+      copy: content="export M2_HOME=/opt/maven/apache-maven-3.9.14 \n" dest=/etc/profile.d/maven.sh
     - lineinfile:
         path: /etc/profile.d/maven.sh
         line: 'export PATH=${M2_HOME}/bin:${PATH}'
